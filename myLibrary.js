@@ -23,3 +23,18 @@ function factorial(z) {
     //usage of a recursive function
 }
 
+//find the number of available same color sock pairs in the "ar"ray
+function sockMerchant(n, ar) {
+    let colorMap = new Map()
+    let validPairs = 0
+    ar.forEach(color => {
+        if (colorMap.has(color)) {
+            colorMap.delete(color)
+            validPairs++
+        } else {
+            colorMap.set(color, 1)
+        }
+    })
+    //usage of Map: set, has, delete
+    return validPairs
+}
