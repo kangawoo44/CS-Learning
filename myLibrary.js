@@ -14,3 +14,12 @@ const minutesToSeconds = time => {
     //usage of destructuring, map casting
 	return seconds < 60 ? (minutes * 60) + seconds : false;
 }
+
+//factorial of a positive integer
+// The factorial of 0 is 1.
+// The factorial of any positive integer Z is Z * (Z - 1) * (Z - 2) * . . . . . . * 1 (e.g. factorial of 3 is 3 * 2 * 1 = 6).
+function factorial(z) {
+    return z ? (z * factorial(z - 1)) : 1
+    //usage of a recursive function
+}
+
