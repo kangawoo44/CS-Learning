@@ -41,7 +41,6 @@ function sockMerchant(n, ar) {
     return validPairs
 }
 
-
 console.log(Math.max(1, 3, 2));
 // expected output: 3
 console.log(Math.max(-1, -3, -2));
@@ -60,3 +59,37 @@ console.log([str])
 // expected output: [ 'abcdef' ] - convert into array with one string in it
 console.log([...str])
 // expected output: [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+
+// Write a function that takes all even-indexed characters and odd-indexed characters from a string and concatenates them together.
+// indexShuffle("abcd") ➞ "acbd"
+// // "ac" (even-indexed) + "bd" (odd-indexed)
+// indexShuffle("abcdefg") ➞ "acegbdf"
+// indexShuffle("holiday") ➞ "hldyoia"
+// indexShuffle("maybe") ➞ "myeab"
+function indexShuffle(str) {
+	const even = [...str].filter((char, i) => i % 2 === 0);
+	const odd = [...str].filter((char, i) => i % 2);
+	return [...even, ...odd].join('');
+}
+const elements = ['Fire', 'Air', 'Water'];
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+
+//regex
+if (stationSearchTerm.endsWith('radio')) {
+    stationSearchTerm = stationSearchTerm.replace(/radio$/, '')
+    //$ - end of string
+}
+//e.g. “mix 106 5” >> “mix 106.5", “94 5” >> “94.5"
+stationSearchTerm = stationSearchTerm.replace(/(\d{2,3})(\s)(\d\s?$)/, '$1.$3')
+// (exp) - grouping, refer to them with $1, $2 respectively
+// \d - a digit | \s - a white space
+// exp{2,3} - 2 to 3 times
+//e.g. “5 50” >> “550"
+stationSearchTerm = stationSearchTerm.replace(/(\d)(\s)(\d{2})/, '$1$3')
+//e.g. “10 10” >> “1010"
+stationSearchTerm = stationSearchTerm.replace(/(\d{2})(\s)(\d{2})/, '$1$3')
