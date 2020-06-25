@@ -23,6 +23,8 @@ function factorial(z) {
     //usage of a recursive function
 }
 
+//n - number of socks in ar
+//ar - array of sock by their colors
 //find the number of available same color sock pairs in the "ar"ray
 function sockMerchant(n, ar) {
     let colorMap = new Map()
@@ -38,3 +40,23 @@ function sockMerchant(n, ar) {
     //usage of Map: set, has, delete
     return validPairs
 }
+
+
+console.log(Math.max(1, 3, 2));
+// expected output: 3
+console.log(Math.max(-1, -3, -2));
+// expected output: -1
+
+//Spread syntax usage
+const array1 = [1, 3, 2];
+console.log(Math.max.apply(null, array1));
+// expected output: 3
+// replace function.apply() with a simpler Spread syntax
+console.log(Math.max(...array1));
+// expected output: 3
+
+const str = "abcdef"
+console.log([str])
+// expected output: [ 'abcdef' ] - convert into array with one string in it
+console.log([...str])
+// expected output: [ 'a', 'b', 'c', 'd', 'e', 'f' ]
