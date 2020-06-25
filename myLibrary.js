@@ -93,3 +93,14 @@ stationSearchTerm = stationSearchTerm.replace(/(\d{2,3})(\s)(\d\s?$)/, '$1.$3')
 stationSearchTerm = stationSearchTerm.replace(/(\d)(\s)(\d{2})/, '$1$3')
 //e.g. “10 10” >> “1010"
 stationSearchTerm = stationSearchTerm.replace(/(\d{2})(\s)(\d{2})/, '$1$3')
+
+const REGEXP = /blue|red/
+"red flag".match(REGEXP)  // red
+"blue flag".match(REGEXP)  // blue
+// Matches "blue" in "blue flag" and "red" in "red flag".
+// Create a regular expression to match all red flag and blue flag in a string. You must use | in your expression. Flags can come in any order.
+// "red flag blue flag".match(REGEXP) ➞ ["red flag", "blue flag"]
+// "yellow flag red flag blue flag green flag".match(REGEXP) ➞ ["red flag", "blue flag"]
+// "pink flag red flag black flag blue flag green flag red flag ".match(REGEXP) ➞ ["red flag", "blue flag", "red flag"]
+const REGEXP = /blue flag|red flag/g
+const REGEXP = /(red|blue) flag/g //even better
