@@ -41,6 +41,16 @@ function sockMerchant(n, ar) {
     return validPairs
 }
 
+//more Map()
+let hMap = new Map([
+    [8, 0], [7, 1], [6, 2],
+    [5, 3], [4, 4], [3, 5],
+    [2, 6], [1, 7], [0, 8]
+])
+let max = Math.max(...hMap.keys()) //expected max: 8
+console.log(hMap.get(max));
+// expected output: 0
+
 console.log(Math.max(1, 3, 2));
 // expected output: 3
 console.log(Math.max(-1, -3, -2));
