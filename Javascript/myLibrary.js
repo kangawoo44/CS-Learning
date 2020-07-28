@@ -117,3 +117,10 @@ const REGEXP = /(red|blue) flag/g //even better
 
 //given an array of unsorted integers, return true if it contains a duplicate
 let containsDuplicate = nums => (new Set(nums)).size != nums.length;
+
+//given an array of unsorted integers, find the nume without a pair
+var singleNumber = function(nums) {
+    let a = 0
+    nums.forEach(num => a ^= num)
+    return a
+};
