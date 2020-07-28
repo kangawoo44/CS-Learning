@@ -37,7 +37,7 @@ function sockMerchant(n, ar) {
             colorMap.set(color, 1)
         }
     })
-    //usage of Map: set, has, delete
+    //usage of Map: set, has, get, delete
     return validPairs
 }
 
@@ -114,3 +114,6 @@ const REGEXP = /blue|red/
 // "pink flag red flag black flag blue flag green flag red flag ".match(REGEXP) ➞ ["red flag", "blue flag", "red flag"]
 const REGEXP = /blue flag|red flag/g
 const REGEXP = /(red|blue) flag/g //even better
+
+//given an array of unsorted integers, return true if it contains a duplicate
+let containsDuplicate = nums => (new Set(nums)).size != nums.length;
