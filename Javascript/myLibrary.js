@@ -38,6 +38,7 @@ function sockMerchant(n, ar) {
         }
     })
     //usage of Map: set, has, get, delete
+    //set will add, but can also update if key already exists. get will get the value of the requested key.
     return validPairs
 }
 
