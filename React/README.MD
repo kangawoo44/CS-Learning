@@ -1,10 +1,10 @@
 # Woo's Pokédex
 
 ## Goal
-- The goal is to build a simple Pokédex 
+- The goal is to build a simple Pokédex that allows users to browse and search for their favorite Pokémons.
 
 ### Tasks
- [ ] Analyze the API for scope and limitations: https://pokeapi.co/
+ [X] Analyze the API for scope and limitations: https://pokeapi.co/
  [X] List out Requirements
  [ ] Learn the basics of React
  [ ] Implement, Verify, and Fix any issues. Repeat.
@@ -12,7 +12,11 @@
  [ ] Improve
 
 ### API Scope & Limitations
-- 
+- Rule: "Locally cache resources whenever you request them."
+    - check out https://github.com/PokeAPI/pokeapi-js-wrapper by Alessandro Pezzé for browser-side with auto caching.
+- Endpoints that I might want to use: 
+    - Evolution Chains
+    - Pokémon, Abilities, Characteristics, Genders, Types
 
 ### Product Requirements
 1. A user wants to see Pokémons right away when landing on the page
@@ -23,5 +27,5 @@
     2.b A user wants to search for a Pokémon by type (e.g. flying, fire)
 
 #### Questions
-- Should I cache anything? what, when, where to, and for how long?
+- 
 
