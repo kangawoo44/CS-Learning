@@ -18,6 +18,7 @@
 2. A user wants to search for a Pokémon
     2.a A user wants to search for a Pokémon by name (e.g. Charzard, Pikachu)
     2.b A user wants to search for a Pokémon by type (e.g. flying, fire)
+    2.c A user wants to be able to scroll through all the Pokémons (lazy load?)
 
 ### API Scope & Limitations
 - Rule: "Locally cache resources whenever you request them."
