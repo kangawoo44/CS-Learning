@@ -100,7 +100,10 @@ class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li>
+        //It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
+        /*In the tic-tac-toe game’s history, each past move has a unique ID associated with it: it’s the sequential number of the move.
+        The moves are never re-ordered, deleted, or inserted in the middle, so it’s safe to use the move index as a key.*/
+        <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
