@@ -19,7 +19,7 @@ import './index.css';
 //   }
 // }
 
-function Square(props) {
+const Square = (props) => {
   return (
     <button className="square" onClick={props.onClick}>
       {props.value}
@@ -69,6 +69,7 @@ class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
+        lastMoveColRow: ""
       }],
       stepNumber: 0,
       xIsNext: true,
@@ -86,6 +87,7 @@ class Game extends React.Component {
     this.setState({
       history: history.concat([{
         squares: squares,
+        lastMoveColRow: getSquareColRow(i),
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
@@ -106,7 +108,7 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
+        'Go to move #' + move + " : " + history[move].lastMoveColRow :
         'Go to game start';
       return (
         //It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
@@ -169,4 +171,13 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+const getSquareColRow = (squareIndex) => {
+  const colRow = [
+    "(0,0)", "(1,0)", "(2,0)",
+    "(0,1)", "(1,1)", "(2,1)",
+    "(0,2)", "(1,2)", "(2,2)"
+  ];
+  return colRow[squareIndex];
 }
