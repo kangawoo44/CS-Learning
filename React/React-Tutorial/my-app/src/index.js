@@ -19,14 +19,6 @@ import './index.css';
 //   }
 // }
 
-const MoveButton = (props) => {
-  return (
-    props.isBold ?
-    <button onClick={props.onClick}><b>{props.moveText}</b></button> :
-    <button onClick={props.onClick}>{props.moveText}</button>
-  ) 
-}
-
 const Square = (props) => {
   return (
     <button className="square" onClick={props.onClick}>
@@ -37,13 +29,26 @@ const Square = (props) => {
 
 class Board extends React.Component {
   renderSquare(i) {
-    //   return <Square />;
     return (
-      <Square 
+      <Square
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
       />
     );
+  }
+
+  renderRow(rowNum) {
+    const boardSize = Math.sqrt(this.props.squares.length);
+    for (let i = 0; i < boardSize; i++) {
+      this.renderSquare(i + rowNum * 3)
+    }
+  }
+
+  renderBoard() {
+    const boardSize = Math.sqrt(this.props.squares.length);
+    for (let i = 0; i < boardSize; i++) {
+      this.renderRow(i)
+    }
   }
 
   render() {
@@ -119,16 +124,16 @@ class Game extends React.Component {
       const desc = move ?
         'Go to move #' + move + " : " + history[move].lastMoveColRow :
         'Go to game start';
+      
+      const isBold = currentStepNumber <= history.length - 1 && currentStepNumber === move
+      const moveText = isBold ? <b>{desc}</b> : desc
+      const moveButton = <button onClick={() => this.jumpTo(move)}>{moveText}</button>
       return (
         //It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
         /*In the tic-tac-toe game’s history, each past move has a unique ID associated with it: it’s the sequential number of the move.
         The moves are never re-ordered, deleted, or inserted in the middle, so it’s safe to use the move index as a key.*/
         <li key={move}>
-          <MoveButton
-            moveText={desc}
-            isBold={currentStepNumber <= history.length-1 && currentStepNumber === move}
-            onClick={() => this.jumpTo(move)}
-          />
+          {moveButton}
         </li>
       );
     })
@@ -143,7 +148,7 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board 
+          <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
