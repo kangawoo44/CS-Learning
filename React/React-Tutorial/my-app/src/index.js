@@ -125,8 +125,7 @@ class Game extends React.Component {
         'Go to move #' + move + " : " + history[move].lastMoveColRow :
         'Go to game start';
       
-      const isBold = currentStepNumber <= history.length - 1 && currentStepNumber === move
-      const moveText = isBold ? <b>{desc}</b> : desc
+      const moveText = move === currentStepNumber ? <b>{desc}</b> : desc
       const moveButton = <button onClick={() => this.jumpTo(move)}>{moveText}</button>
       return (
         //It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
