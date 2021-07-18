@@ -19,6 +19,14 @@ import './index.css';
 //   }
 // }
 
+const MoveButton = (props) => {
+  return (
+    props.isBold ?
+    <button onClick={props.onClick}><b>{props.moveText}</b></button> :
+    <button onClick={props.onClick}>{props.moveText}</button>
+  ) 
+}
+
 const Square = (props) => {
   return (
     <button className="square" onClick={props.onClick}>
@@ -103,7 +111,8 @@ class Game extends React.Component {
 
   render() {
     const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const currentStepNumber = this.state.stepNumber;
+    const current = history[currentStepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
@@ -115,7 +124,11 @@ class Game extends React.Component {
         /*In the tic-tac-toe game’s history, each past move has a unique ID associated with it: it’s the sequential number of the move.
         The moves are never re-ordered, deleted, or inserted in the middle, so it’s safe to use the move index as a key.*/
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <MoveButton
+            moveText={desc}
+            isBold={currentStepNumber <= history.length-1 && currentStepNumber === move}
+            onClick={() => this.jumpTo(move)}
+          />
         </li>
       );
     })
@@ -137,7 +150,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
+          <ul>{moves}</ul>
         </div>
       </div>
     );
