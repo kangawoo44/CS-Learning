@@ -52,23 +52,28 @@ class Board extends React.Component {
   }
 
   render() {
+    const ticTacToeBoard = () => {
+      const rowDiv = (colIndex) => {
+        let row = [];
+        for (let i = 0; i < 3; i++) {
+          let squareId = colIndex * 3 + i;
+          row.push(this.renderSquare(squareId));
+        }
+        return (
+          <div className="board-row">
+            {row}
+          </div>
+        )
+      }
+      let column = [];
+      for (let i = 0; i < 3; i++) {
+        column.push(rowDiv(i));
+      }
+      return column;
+    }
     return (
       <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        {ticTacToeBoard()}
       </div>
     );
   }
