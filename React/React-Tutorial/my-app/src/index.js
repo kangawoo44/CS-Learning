@@ -37,30 +37,29 @@ class Board extends React.Component {
       />
     );
   }
-
-  render() {
-    const ticTacToeBoard = () => {
-      const rowDiv = (colIndex) => {
-        let row = [];
-        for (let i = 0; i < 3; i++) {
-          let squareId = colIndex * 3 + i;
-          row.push(this.renderSquare(squareId));
-        }
-        return (
-          <div className="board-row" key={colIndex}>
-            {row}
-          </div>
-        )
-      }
-      let column = [];
-      for (let i = 0; i < 3; i++) {
-        column.push(rowDiv(i));
-      }
-      return column;
+  ticTacToeBoard = () => {
+    const rowDiv = (colIndex) => {
+      return (
+        <div className="board-row" key={colIndex}>
+          {
+            [0,1,2].map((n) => {
+              let squareId = colIndex * 3 + n;
+              return this.renderSquare(squareId)
+            })
+          }
+        </div>
+      )
     }
     return (
+      [0,1,2].map((n) => {
+        return rowDiv(n)
+      })
+    )
+  }
+  render() {
+    return (
       <div>
-        {ticTacToeBoard()}
+        {this.ticTacToeBoard()}
       </div>
     );
   }
