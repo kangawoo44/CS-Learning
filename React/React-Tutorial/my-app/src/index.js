@@ -37,20 +37,6 @@ class Board extends React.Component {
     );
   }
 
-  renderRow(rowNum) {
-    const boardSize = Math.sqrt(this.props.squares.length);
-    for (let i = 0; i < boardSize; i++) {
-      this.renderSquare(i + rowNum * 3)
-    }
-  }
-
-  renderBoard() {
-    const boardSize = Math.sqrt(this.props.squares.length);
-    for (let i = 0; i < boardSize; i++) {
-      this.renderRow(i)
-    }
-  }
-
   render() {
     const ticTacToeBoard = () => {
       const rowDiv = (colIndex) => {
