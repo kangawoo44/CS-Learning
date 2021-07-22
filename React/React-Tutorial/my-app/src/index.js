@@ -42,7 +42,7 @@ class Board extends React.Component {
       return (
         <div className="board-row" key={colIndex}>
           {
-            [0,1,2].map((n) => {
+            [0, 1, 2].map((n) => {
               let squareId = colIndex * 3 + n;
               return this.renderSquare(squareId)
             })
@@ -51,7 +51,7 @@ class Board extends React.Component {
       )
     }
     return (
-      [0,1,2].map((n) => {
+      [0, 1, 2].map((n) => {
         return rowDiv(n)
       })
     )
@@ -77,6 +77,7 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
+      isMovesOrderDesc: true,
     }
   }
 
@@ -105,6 +106,12 @@ class Game extends React.Component {
     });
   }
 
+  changeMovesOrder() {
+    this.setState({
+      isMovesOrderDesc: this.state.isMovesOrderDesc ? false : true
+    })
+  }
+
   render() {
     const history = this.state.history;
     const currentStepNumber = this.state.stepNumber;
@@ -112,12 +119,12 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
+      const moveText = move ?
         'Go to move #' + move + " : " + history[move].lastMoveColRow :
         'Go to game start';
-      
-      const moveText = move === currentStepNumber ? <b>{desc}</b> : desc
-      const moveButton = <button onClick={() => this.jumpTo(move)}>{moveText}</button>
+
+      const boldCurrentMoveText = (moveText) => { return move === currentStepNumber ? <b>{moveText}</b> : moveText }
+      const moveButton = <button onClick={() => this.jumpTo(move)}>{boldCurrentMoveText(moveText)}</button>
       return (
         //It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
         /*In the tic-tac-toe game’s history, each past move has a unique ID associated with it: it’s the sequential number of the move.
@@ -127,6 +134,10 @@ class Game extends React.Component {
         </li>
       );
     })
+
+    const orderToggleButtonText = this.state.isMovesOrderDesc ? "Show moves in ascending order" : "Show moves in descending order"
+    const orderToggleButton = <button onClick={() => this.changeMovesOrder(moves)}>{orderToggleButtonText}</button>
+    let movesInOrder = this.state.isMovesOrderDesc ? moves : moves.reverse()
 
     let status;
     if (winner) {
@@ -145,7 +156,10 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ul>{moves}</ul>
+          <div>
+            {orderToggleButton}
+            <ul>{movesInOrder}</ul>
+          </div>
         </div>
       </div>
     );
