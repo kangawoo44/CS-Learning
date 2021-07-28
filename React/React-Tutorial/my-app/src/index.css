@@ -39,6 +39,10 @@ body {
   .kbd-navigation .square:focus {
     background: #ddd;
   }
+
+  #winningSquare {
+    background: pink;
+  }
   
   .game {
     display: flex;
