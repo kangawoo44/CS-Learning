@@ -30,3 +30,4 @@ for (const key in object1) {
 
 // forEach loops are just for arrays
 array1.forEach(element => console.log(element))
+array1.forEach((element, index) => {console.log(element, index)})
