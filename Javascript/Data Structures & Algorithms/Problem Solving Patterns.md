@@ -49,3 +49,10 @@ start asking questions and see if we need to worry about other variations such a
 - Don't just do nothing being stuck at a problem.
 
 ### 5. Look Back and Refactor
+- can you check the result?
+- can you derive the result differently?
+- can you understand it at a glance?
+- can you use the result or method for some other problem?
+- can you improve the performance of your solution?
+- can you think of other ways to refactor?
+- how have other people solved this problem?
