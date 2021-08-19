@@ -8,6 +8,7 @@ let x_name = object_x.name
 console.log('x_name', x_name)
 x_name = object_x['name']
 console.log('x_name', x_name)
+
 // if it doesn't exist you'll get undefined
 x_name = object_x.something
 console.log('x_name', x_name)
