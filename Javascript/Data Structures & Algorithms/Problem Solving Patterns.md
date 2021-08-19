@@ -34,7 +34,17 @@ start asking questions and see if we need to worry about other variations such a
 - If someone passes nothing/invalid? null? empty string?
 
 ### 3. Break It Down
+- Explicitly write out the steps you need to take. This helps you catch any lingering conceptual issues or misunderstandings before you dive in.
+- Example:
+  - make object to return at end
+  - loop over string, for each character...
+    - if the char is a number/letter AND is a key in object, add one to count
+    - if the char is a number/letter AND not in object, add it to object and set value to 1
+    - if character is something else (space, period, etc.) don't do anything
+  - return object at end
 
+- Even if you don't finish the problem, these types of outline can make a difference in how competent you are perceived to be.
 ### 4. Solve or Simplify
+
 
 ### 5. Look Back and Refactor
