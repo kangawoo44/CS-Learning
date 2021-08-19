@@ -45,6 +45,7 @@ start asking questions and see if we need to worry about other variations such a
 
 - Even if you don't finish the problem, these types of outline can make a difference in how competent you are perceived to be.
 ### 4. Solve or Simplify
-
+- Solve the problem but if you can't, solve a simpler problem!
+- Don't just do nothing being stuck at a problem.
 
 ### 5. Look Back and Refactor
