@@ -1,8 +1,8 @@
 What is an algorithm?
 A process or set of steps to accomplish a certain task.
 
-## Problem Solving Approaches
-### 1. Understand the Problem
+# Problem Solving Approaches
+## 1. Understand the Problem
 *Book recommendation: How to Solve It by George Polya*
 - Can I restate the problem in my own words?
 - What are the inputs that go into the problem?
@@ -12,13 +12,11 @@ A process or set of steps to accomplish a certain task.
   - what are their types?
 - Can the outputs be determined from the inputs? In other words, do I have enough information to solve the problem? (You may not be able to answer this question until yous et about solving the problem.)
 - How should I label the important pieces of data that are a part of the problem?
-
-### 2. Concrete Examples
+## 2. Concrete Examples
 Coming up with examples can help you understand the problem better.
 Examples also provbide sanity checks that your eventual solution works how it should.
 User Stories. Unit Tests.
-
-#### Explore Examples
+### Explore Examples
 - Start with simple examples
 - Progress to more complex examples
   - What's the worst case scenario? write them down so you can refer to them.
@@ -32,8 +30,7 @@ start asking questions and see if we need to worry about other variations such a
 - Do we want to have all the alphabet letters in there?
 - What about white spaces? special characters? numbers? capitalization?
 - If someone passes nothing/invalid? null? empty string?
-
-### 3. Break It Down
+## 3. Break It Down
 - Explicitly write out the steps you need to take. This helps you catch any lingering conceptual issues or misunderstandings before you dive in.
 - Example:
   - make object to return at end
@@ -44,11 +41,10 @@ start asking questions and see if we need to worry about other variations such a
   - return object at end
 
 - Even if you don't finish the problem, these types of outline can make a difference in how competent you are perceived to be.
-### 4. Solve or Simplify
+## 4. Solve or Simplify
 - Solve the problem but if you can't, solve a simpler problem!
 - Don't just do nothing being stuck at a problem.
-
-### 5. Look Back and Refactor
+## 5. Look Back and Refactor
 - can you check the result?
 - can you derive the result differently?
 - can you understand it at a glance?
@@ -56,3 +52,18 @@ start asking questions and see if we need to worry about other variations such a
 - can you improve the performance of your solution?
 - can you think of other ways to refactor?
 - how have other people solved this problem?
+
+# Problem Solving Patterns
+- Frequency Counter
+- Multiple Pointers
+- Sliding Window
+- Divide and Conquer
+- Dynamic Programming
+- Greedy Algorithms
+- Backtracking
+- Many more!
+
+## Frequency Counters
+- This pattern uses objects or sets to collect values/frequencies of values
+- Typically O(n)
+- This can often avoid the need for nested loops or O(n^2) operations with arrays/strings
