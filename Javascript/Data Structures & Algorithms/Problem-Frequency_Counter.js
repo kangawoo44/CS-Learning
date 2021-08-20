@@ -14,18 +14,16 @@ const same = (arr1, arr2) => {
   // input variation: float 2.3 >> 5.28999999, no worries on float or use toPrecision() ?
   // input type: array containing anything else like string?
 
-  let isSame = false;
-  if (!(arr1 && arr1.length && arr2 && arr2.length && arr1.length == arr2.length)) return isSame;
+  if (!(arr1 && arr1.length && arr2 && arr2.length && arr1.length == arr2.length)) return false;
   
   let arr1_map = getFrequencyMap(arr1);
   let arr2_map = getFrequencyMap(arr2);
 
   for (const [key, value] of arr1_map) {
     const key2_freq = arr2_map.get(key**2);
-    if (!(key2_freq && value == key2_freq)) return isSame;
+    if (!(key2_freq && value == key2_freq)) return false;
   }
-  isSame = true;
-  return isSame;
+  return true;
 } //O(n) - both time and space
 
 const getFrequencyMap = (array) => {
