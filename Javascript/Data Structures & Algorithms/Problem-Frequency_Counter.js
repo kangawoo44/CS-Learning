@@ -10,18 +10,40 @@ same([1,2,3], [1,9]) //false
 same([1,2,1], [4,4,1]) //false — must be same frequency, one 4 and two 1's
 */
 
-function same (arr1, arr2) {
-  // invalid input: null, undefined >> return false
-  // empty arrays: false instead of true since it would bypass all the checks
-  // input variation: negative values? >> [-2, 2, 3], [4, 4, 9] >> use Math.abs
+const same = (arr1, arr2) => {
   // input variation: float 2.3 >> 5.28999999, no worries on float or use toPrecision() ?
   // input type: array containing anything else like string?
 
-  //make boolean variable
-  //if two arrays' length are the same, return false
-  //iterate through arr1 and store in a hashmap
-  //iterate through arr2 and store in a hashmap
-  //loop through each entry of arr1 hashmap to arr2 hasmap and check the squared value and frequency matcch
-    //return false if any one entry doesn't have a match
-  //return true if the loop ends with complete match
+  let isSame = false;
+  if (!(arr1 && arr1.length && arr2 && arr2.length && arr1.length == arr2.length)) return isSame;
+  
+  let arr1_map = mapArray(arr1);
+  let arr2_map = mapArray(arr2);
+
+  for (const [key, value] of arr1_map) {
+    const key2_freq = arr2_map.get(key**2);
+    if (!(key2_freq && value == key2_freq)) return isSame;
+  }
+  isSame = true;
+  return isSame;
 }
+
+const mapArray = (array) => {
+  let map = new Map();
+  array.forEach(element => {
+    //for negative numbers, count it the same as its positive number since this map will only be used to compare for frequency.
+    //exmaple: [-2,2,4], [4,4,16] should be true, not false
+    const element_abs = Math.abs(element);
+    if (map.has(element_abs)) {
+      map.set(element_abs, map.get(element_abs) + 1)
+    } else {
+      map.set(element_abs, 1)
+    }
+  })
+  return map;
+}
+
+console.log(same([-2,2,3],[4,4,9])) //should be true
+console.log(same([1,2,3],[4,1,9])) //should be true
+console.log(same([1,2,3],[1,9])) //should be false (length)
+console.log(same([1,2,1],[4,4,1])) //should be false (frequency)
