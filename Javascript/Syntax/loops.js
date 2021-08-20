@@ -41,3 +41,7 @@ array1.forEach(element => console.log(element))
 array1.forEach((element, index) => {console.log(element, index)})
 
 str.split('').forEach((char, i) => console.log(char, i)) //O(n) for split('')
+
+// get a new array, immutable and chainable
+let newArray1 = array1.map(element => element + '+')
+console.log(newArray1)
