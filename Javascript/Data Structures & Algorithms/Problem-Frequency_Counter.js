@@ -17,8 +17,8 @@ const same = (arr1, arr2) => {
   let isSame = false;
   if (!(arr1 && arr1.length && arr2 && arr2.length && arr1.length == arr2.length)) return isSame;
   
-  let arr1_map = mapArray(arr1);
-  let arr2_map = mapArray(arr2);
+  let arr1_map = getFrequencyMap(arr1);
+  let arr2_map = getFrequencyMap(arr2);
 
   for (const [key, value] of arr1_map) {
     const key2_freq = arr2_map.get(key**2);
@@ -26,9 +26,9 @@ const same = (arr1, arr2) => {
   }
   isSame = true;
   return isSame;
-}
+} //O(n) - both time and space
 
-const mapArray = (array) => {
+const getFrequencyMap = (array) => {
   let map = new Map();
   array.forEach(element => {
     //for negative numbers, count it the same as its positive number since this map will only be used to compare for frequency.
