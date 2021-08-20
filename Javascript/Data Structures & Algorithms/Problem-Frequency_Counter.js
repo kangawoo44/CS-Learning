@@ -33,11 +33,11 @@ const getFrequencyMap = (array) => {
   array.forEach(element => {
     //for negative numbers, count it the same as its positive number since this map will only be used to compare for frequency.
     //exmaple: [-2,2,4], [4,4,16] should be true, not false
-    const element_abs = Math.abs(element);
-    if (map.has(element_abs)) {
-      map.set(element_abs, map.get(element_abs) + 1)
+    const abs_element = Math.abs(element);
+    if (map.has(abs_element)) {
+      map.set(abs_element, map.get(abs_element) + 1)
     } else {
-      map.set(element_abs, 1)
+      map.set(abs_element, 1)
     }
   })
   return map;
