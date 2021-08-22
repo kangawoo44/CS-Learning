@@ -13,7 +13,7 @@ validAnagram('texttwisttime', 'timetwisttext') // ture
 */
 
 const validAnagram = (str1, str2) => { //time O(n), space O(n)
-  //input checks: type ('123', '321')
+  //input checks: type ('123', '321'), capitalization, white spaces, special characters
 
   //Check:
   //invalid: null, undefined, if found return false
@@ -39,8 +39,8 @@ const validAnagram = (str1, str2) => { //time O(n), space O(n)
 const getFrequencyMap = (str) => {
   let map = new Map();
   for (const char of str) {
-    const mapVal = map.get(char);
-    let value = mapVal ? mapVal + 1 : 1;
+    let mapVal = map.get(char);
+    let value = ++mapVal || 1;
     map.set(char, value);
   }
   return map;
@@ -48,3 +48,5 @@ const getFrequencyMap = (str) => {
 
 console.log(validAnagram('aaz', 'zza'))
 console.log(validAnagram('anagram', 'nagaram'))
+
+//This could also be solved with just one map, subtracting each found character frequency as the second string is looped over.

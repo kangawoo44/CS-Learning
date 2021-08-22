@@ -64,6 +64,10 @@ start asking questions and see if we need to worry about other variations such a
 - Many more!
 
 ## Frequency Counters
+- Any time you have multiple pieces of data to compare, in particular if you need to see if they contain the same individual pieces in the same frequency.
 - This pattern uses objects or sets to collect values/frequencies of values
 - Typically O(n)
 - This can often avoid the need for nested loops or O(n^2) operations with arrays/strings
+
+## Multiple Pointers
+- 
