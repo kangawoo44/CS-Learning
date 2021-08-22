@@ -33,16 +33,13 @@ const countUniqueValues = (arr) => { //O(n)
     if (arr.length === 1) return count;
     let next = 1;
     arr.forEach(num => {
-      if (arr[next] !== num) {
-        count++;
-      }
+      if (arr[next] !== num) count++;
       if (next === arr.length - 1) return count;
       next++;
     })
   }
   return count;
 }
-
 
 console.log(countUniqueValues([1,1,1,1,1,2])) // 2
 console.log(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13])) // 7
