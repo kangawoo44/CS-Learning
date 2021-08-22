@@ -70,4 +70,5 @@ start asking questions and see if we need to worry about other variations such a
 - This can often avoid the need for nested loops or O(n^2) operations with arrays/strings
 
 ## Multiple Pointers
-- 
+- Creating pointers or values that correspond to an index or position and move towards the beginning, end  or middle based on certain condition.
+- Very efficient for solving problems with minimal space complexity as well.
