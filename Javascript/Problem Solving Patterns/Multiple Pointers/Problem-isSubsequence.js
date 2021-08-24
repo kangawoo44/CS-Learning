@@ -18,24 +18,22 @@
 
 function isSubsequence(str1, str2) {
   //type
-  if (!str1 || !str2 
-    || typeof str1 !== 'string' || typeof str2 !== 'string' 
-    || !str1.length || str2.length < str1.length) {
-      console.log('false');
-      return false;
-    }
+  if (!str1 || !str1.length) {
+    console.log('true');
+    return true;
+  }
+  if (!str2 || typeof str1 !== 'string' || typeof str2 !== 'string'
+    || str2.length < str1.length) {
+    console.log('false');
+    return false;
+  }
 
-  let matchCount = 0;
-  for (let i = 0; i < str1.length; i++) {
-    for (let j = 0; j < str2.length; j++) {
-      if (str1[i] === str2[j]) {
-        i++;
-        matchCount++;
-      }
-      if (matchCount === str1.length) {
-        console.log('true');
-        return true;
-      }
+  let i = 0;
+  for (let j = 0; j < str2.length; j++) {
+    if (str1[i] === str2[j]) i++;
+    if (i === str1.length) {
+      console.log('true');
+      return true;
     }
   }
   console.log('false');
