@@ -3,7 +3,7 @@
  * The function should calculate the maximum sum of n consecutive elements in the array.
  */
 
-const maxSubarraySum = (arr, num) => {
+const maxSubarraySum = (arr, num) => { //O(n)
   let maxSum = 0;
   let tempSum = 0;
   if (!arr || !arr.length || arr.length < num) return null;
