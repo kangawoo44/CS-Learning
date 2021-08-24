@@ -15,7 +15,7 @@
 function sameFrequency(num1, num2) {
   num1 = num1.toString();
   num2 = num2.toString();
-  if (!(num1.length === num2.length)) return false;
+  if (num1.length !== num2.length) return false;
   let num1_map = {};
   for (const char of num1) {
     num1_map[char] = num1_map[char] ? num1_map[char] + 1 : 1;
