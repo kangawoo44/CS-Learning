@@ -1,0 +1,4 @@
+- Binary search is a much faster form of search.
+- Rather than eliminating one element at a time, you can eliminate half of the remaining elements at a time.
+- Binary search only works on **sorted** arrays.
+- The idea is to divide and conquer. Find the element at half point, see if the target is less than or greater than it. Repeat til target is found.
