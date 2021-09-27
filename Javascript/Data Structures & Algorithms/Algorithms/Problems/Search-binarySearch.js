@@ -16,7 +16,7 @@
  * If you never find the value, return -1
  */
 
-let binarySearch = (nums, target) => {
+let binarySearch = (nums, target) => {// O(log n)
   //empty array
   if (!nums.length) return -1;
   
@@ -24,10 +24,7 @@ let binarySearch = (nums, target) => {
   let right = nums.length - 1;
 
   while (left <= right) {
-    if (left == right) {
-      if (nums[left] === target) return left;
-      else return -1;
-    }
+    if (left == right) return nums[left] === target ? left : -1;
     let middle = Math.ceil((left + right) / 2) //rounded up
     if (nums[middle] === target) return middle;
     else if (nums[middle] > target) right = middle - 1;
