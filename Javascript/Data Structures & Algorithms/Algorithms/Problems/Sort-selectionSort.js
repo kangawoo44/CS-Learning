@@ -5,7 +5,7 @@
  * Swap the smallest item at the current position, going from 0 to the end of the array to build up from the smallest.
  */
 
-let selectionSort = (nums) => {
+let selectionSort = (nums) => { //O(n^2). Same as bubble sort, but minimizes swaps. So if writing to memory is a concern this could be better.
   for (let i = 0; i < nums.length-1; i++) {
     let min = i;
     for (let j = i + 1; j < nums.length; j++) {
