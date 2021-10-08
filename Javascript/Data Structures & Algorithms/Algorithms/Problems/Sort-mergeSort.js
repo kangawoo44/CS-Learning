@@ -1,7 +1,8 @@
 /**
  * Merge Sort
  * 
- * O(n log n)
+ * O(n log n) time
+ * O(n) space
  * exploits the fact that arrays of 0 or 1 element are always sorted.
  * it works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array.
  * split by half until each element is an array. Then start merging them.
@@ -41,7 +42,7 @@ function mergeSort(arr){
   let mid = Math.floor(arr.length/2);
   let left = mergeSort(arr.slice(0,mid));
   let right = mergeSort(arr.slice(mid));
-  return merge(left, sright);
+  return merge(left, right);
 }
 
 
