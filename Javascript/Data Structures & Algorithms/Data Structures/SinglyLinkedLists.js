@@ -35,6 +35,20 @@ class SinglyLinkedList {
     }
     this.length++;
   }
+  print() {
+    let p = this.head;
+    while (p) {
+      console.log(p.val);
+      p = p.next;
+    }
+  }
+  static printFrom(pointer) {
+    let p = pointer;
+    while (p) {
+      console.log(p.val);
+      p = p.next;
+    }
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -45,10 +59,6 @@ list.push('my name is')
 list.push('woo')
 // console.log(list)
 
-let p = list.head;
-
-p = list.head;
-while (p) {
-  console.log(p.val);
-  p = p.next;
-}
+list.print()
+let a = list.head.next;
+SinglyLinkedList.printFrom(a)
