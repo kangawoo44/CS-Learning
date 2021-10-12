@@ -26,7 +26,7 @@ class SinglyLinkedList {
   }
   push(val) {
     let node = new Node(val);
-    if (!this.head && !this.tail) {
+    if (!this.head) {
       this.head = node;
       this.tail = node;
     } else {
@@ -34,6 +34,19 @@ class SinglyLinkedList {
       this.tail = node;
     }
     this.length++;
+    return this;
+  }
+  pop() {
+    if(!this.head) return undefined;
+    let p = this.head;
+    while(p.next !== this.tail) {
+      p = p.next;
+    }
+    let removedVal = this.tail.val;
+    p.next = null;
+    this.tail = p;
+    this.length--;
+    return removedVal;
   }
   print() {
     let p = this.head;
@@ -60,5 +73,10 @@ list.push('woo')
 // console.log(list)
 
 list.print()
+
 let a = list.head.next;
 SinglyLinkedList.printFrom(a)
+
+console.log('popped value is: ', list.pop())
+
+console.log(list.push('woo'))
