@@ -40,8 +40,35 @@ class BinarySearchTree {
       }
     }
   }
+  find(value) {
+    //return true if found, false if not
+    //does root exist? does value exist?
+    //is value equal, less than, or greater than the current node's value?
+    let isLeft = false;
+    let parent = this.root;
+    let curNode = this.root;
+
+    while (curNode) {
+      if (value === curNode.value) {
+        if (parent.value === curNode.value) console.log(`${value} was found on the root node.`);
+        else console.log(`${value} was found on the ${isLeft ? "left" : "right"} node of parent: ${parent.value}`);
+        return true;
+      }
+      parent = curNode;
+      if (value < curNode.value) {
+        curNode = curNode.left;
+        isLeft = true;
+      }
+      else {
+        curNode = curNode.right;
+        isLeft = false;
+      }
+    }
+
+    console.log(`${value} was not found.`);
+    return false;
+  }
   remove(value) {}
-  find(value) {}
 }
 
 // class BinarySearchTree {
@@ -113,15 +140,18 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
-printTree(tree.root);
+console.log(tree.find(10));
+console.log(tree.find(5));
+console.log(tree.find(12));
+// printTree(tree.root);
 //      10
 //   5     13
 // 2  7  11  16
 
-function printTree(rootNode) {
-  const array = [];
-  array.push[rootNode.value];
-  console.log(rootNode.value);
-  if(rootNode.left !== null) printTree(rootNode.left);
-  if(rootNode.right !== null) printTree(rootNode.right);
-}
+// function printTree(rootNode) {
+//   const array = [];
+//   array.push[rootNode.value];
+//   console.log(rootNode.value);
+//   if (rootNode.left) printTree(rootNode.left);
+//   if (rootNode.right) printTree(rootNode.right);
+// }
