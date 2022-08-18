@@ -44,6 +44,8 @@ class BinarySearchTree {
     //return true if found, false if not
     //does root exist? does value exist?
     //is value equal, less than, or greater than the current node's value?
+    if (!this.root || !value) return false;
+
     let isLeft = false;
     let parent = this.root;
     let curNode = this.root;
@@ -52,7 +54,11 @@ class BinarySearchTree {
       if (value === curNode.value) {
         if (parent.value === curNode.value) console.log(`${value} was found on the root node.`);
         else console.log(`${value} was found on the ${isLeft ? "left" : "right"} node of parent: ${parent.value}`);
-        return true;
+        return {
+            parent: parent,
+            curNode: curNode,
+            isLeft: isLeft
+        };
       }
       parent = curNode;
       if (value < curNode.value) {
@@ -66,9 +72,56 @@ class BinarySearchTree {
     }
 
     console.log(`${value} was not found.`);
-    return false;
+    return {
+        parent: null,
+        curNode: null,
+        isLeft: isLeft
+    };
   }
-  remove(value) {}
+  remove(value) {
+    //find the value node, replace it with its successor or just remove it
+    //if it's a leaf node, just reassign the parent's pointer to null
+    //if there's any child node, find the successor and assign it to the parent's pointer
+        //this would mean always looking at the right side of the value node
+        //then looking as far left as possible, make that the new node the successor
+        //if there's no right child but there's a left child, left child is the successor
+
+    const {parent, curNode, isLeft} = this.find(value);
+    //value not found
+    if (!parent && !curNode) return null;
+
+    //value is root
+    if (parent === curNode) {
+        this.root = null;
+    }
+    //value node found is a leaf node
+    else if (!curNode.left && !curNode.right) {
+        if (isLeft) parent.left = null;
+        else parent.right = null;
+    }
+    //value node found has a right child
+    else if (curNode.right) {
+        let successor = curNode.right;
+        let successorParent = null;
+        //that right child may have nodes smaller than it
+        while (successor.left) {
+            successorParent = successor;
+            successor = successor.left;
+        }
+        if (successorParent) successorParent.left = null;
+        if (isLeft) parent.left = successor;
+        else parent.right = successor;
+        successor.left = curNode.left;
+    }
+    //value node found has only left child
+    else {
+        if (isLeft) parent.left = curNode.left;
+        else parent.right = curNode.left;
+    }
+    //return the value node that's being removed
+    console.log("removing", curNode);
+    return curNode;
+  }
 }
 
 // class BinarySearchTree {
@@ -143,6 +196,8 @@ tree.insert(7);
 console.log(tree.find(10));
 console.log(tree.find(5));
 console.log(tree.find(12));
+tree.remove(5);
+console.log(tree.find(7));
 // printTree(tree.root);
 //      10
 //   5     13
