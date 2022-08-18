@@ -14,10 +14,12 @@ class Graph {
   }
   addEdge(node1, node2) {
     //undirected Graph
-    for (const [node, list] of Object.entries(this.adjacentList)) {
-      if (node === node1) list.push(node2);
-      if (node === node2) list.push(node1);
-    }
+    this.adjacentList[node1].push(node2);
+    this.adjacentList[node2].push(node1);
+    // for (const [node, list] of Object.entries(this.adjacentList)) {
+    //   if (node === node1) list.push(node2);
+    //   if (node === node2) list.push(node1);
+    // }
   }
   showConnections() {
     for (const [node, list] of Object.entries(this.adjacentList)) {
